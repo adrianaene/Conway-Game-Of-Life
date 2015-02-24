@@ -1,0 +1,56 @@
+Ene Adriana
+331 CC
+
+Detalii implementare:
+
+	Pentru rezolvarea problemei am creat 4 functii:
+		-void reprToroid(int row, int col, int harta[row][col], int toroid[row + 2][col + 2])
+		functie ce imi bordeaza matricea in forma de toroid pentru a calcula suma vecinilor
+		functia primeste ca parametri dimensiunile matricii, matricea si noua matrice bordata;
+		-int sumaVecini(int row, int col, int matrix[row][col], int pozRow, int pozCol)
+		functie ce imi calculeaza suma vecinilor unui individ
+		primeste ca argumente matricea si dimensiunile ei si pozitia individului caruia
+		vreau sa-i calculez suma vecinilor;
+		-void bordare(int row, int col, int matrix[row][col], int borderedMatrix[row + 2][col + 2])
+		functie ce imi bordeaza matricea cu 0 pentru a calcula suma vecinilor
+		functia primeste ca parametri dimensiunile matricii, matricea si noua matrice bordata;
+		-void writeFile(int row, int col, int matrix[row][col], char form, char* output_file)
+		functie ce scrie o matrice intr-un fisier.
+		
+	In functia principala citesc un fisier cu dimensiunile si harta, si simulez până la a N-a etapa 
+	si o salvez în alt fișier.
+	Am paralelizat folosind #pragma omp parallel for si collapse.
+	
+	Timpii obtinuti cu numere diferite de thread-uri:
+		$>time ./tema1 1 1000 test1.txt test1.out.txt 
+			real 0m0.286s
+			user 0m0.284s
+			sys 0m0.000s
+		$>time ./tema1 2 1000 test1.txt test1.out.txt
+			real 0m0.158s
+			user 0m0.308s
+			sys 0m0.000s
+		$>time ./tema1 4 1000 test1.txt test1.out.txt
+			real 0m0.155s
+			user 0m0.584s
+			sys 0m0.008s
+		$>time ./tema1 8 1000 test1.txt test1.out.txt
+			real 0m0.103s
+			user 0m0.740s
+			sys 0m0.008s
+		$>time ./tema1 1 1000 test2.txt test2.out.txt
+			real 0m0.323s
+			user 0m0.320s
+			sys 0m0.000s
+		$>time ./tema1 2 1000 test2.txt test2.out.txt
+			real 0m0.211s
+			user 0m0.416s
+			sys 0m0.000s
+		$>time ./tema1 4 1000 test2.txt test2.out.txt
+			real 0m0.149s
+			user 0m0.576s
+			sys 0m0.000s
+		$>time ./tema1 8 1000 test2.txt test2.out.txt
+			real 0m0.145s
+			user 0m1.076s
+			sys 0m0.004s
